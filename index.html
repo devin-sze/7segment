@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>devinsze | 7 segment demo</title>
+    <!-- <link rel="icon" href="logo_devinsze_img.png"> -->
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="metaball.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+</head>
+<body onload="create_segment()">
+    <header>Seven Segment Display</header>
+
+    <div class="slidecontainer">
+        <input type="range" min="0.1" max="5" value="0.4" step="0.05" class="slider" id="myRange">
+        <p>Value: <span id="demo"></span></p>
+    </div>
+
+    <div class="numeric_count">
+        <div onclick="add_num(0)">0</div>
+        <div onclick="add_num(1)">1</div>
+        <div onclick="add_num(2)">2</div>
+        <div onclick="add_num(3)">3</div>
+        <div onclick="add_num(4)">4</div>
+        <div onclick="add_num(5)">5</div>
+        <div onclick="add_num(6)">6</div>
+        <div onclick="add_num(7)">7</div>
+        <div onclick="add_num(8)">8</div>
+        <div onclick="add_num(9)">9</div>
+    </div>
+    
+    <p>hiii</p>
+
+    <div class="start" onclick="clear()"></div>
+
+    <div class="display">
+        <div class="segment h" id="top"></div>
+        <div class="segment v" id="l_top"></div>
+        <div class="segment v" id="l_btm"></div>
+        <div class="segment h" id="btm"></div>
+        <div class="segment v" id="r_top"></div>
+        <div class="segment v" id="r_btm"></div>
+        <div class="segment h" id="mid"></div>
+    </div>
+
+
+
+    <div class="segment"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

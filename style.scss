@@ -1,0 +1,189 @@
+
+$segment_unit: 150px;
+$segment_short_ratio: 0.2;
+
+
+body {
+    margin: 0px;
+}
+header {
+    background-color: orange;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+
+
+
+.slidecontainer {
+    width: 100%; /* Width of the outside container */
+  }
+  
+  /* The slider itself */
+  .slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+  }
+  
+  /* Mouse-over effects */
+  .slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+  }
+  
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .grid-element {
+    height: 50px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    
+    background: #BBDEFB;
+    color: #333;
+  }
+  
+  .relative {
+    position: relative;
+    left: -50px;
+    top: 10px;
+  }
+
+
+
+.numeric_count {
+    background-color: yellow;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    div {
+        background-color: green;
+        height: 25px;
+        width: 25px;
+        line-height: 25px;
+        text-align: center;
+        line-height: 25px;
+        border-radius: 100%;
+        
+    }
+}
+
+
+.start {
+    background-color: red;
+    height: 50px;
+    width: 50px;
+}
+
+
+.display {
+    background-color: blue;
+    height: $segment_unit * (2 + 3 * $segment_short_ratio);
+    width: $segment_unit * (1 + 2 * $segment_short_ratio);
+    margin: 50px;
+    position: absolute;
+
+    .segment {
+        background-color: #00ffff5e;
+        position: absolute;
+        border-radius: $segment_unit;
+        overflow: hidden;
+
+        .child {
+            position: absolute;
+            left: "";
+            top: "";
+            background-color: orange;
+
+            transition: width 0.2s, height 0.2s;
+            transition-timing-function: linear;
+        }
+    }
+    
+    .v {
+        height: $segment_unit;
+        width: $segment_unit * $segment_short_ratio;
+
+        .child {
+            height: 0px;
+            width: $segment_unit;
+        }
+    }
+    .h {
+        height: $segment_unit * $segment_short_ratio;
+        width: $segment_unit;
+
+        .child {
+            height: $segment_unit;
+            width: 0px;
+        }
+    }
+
+    #top {
+        top: 0px;
+        left: $segment_unit * $segment_short_ratio;
+    }
+    #mid {
+        top: $segment_unit * (1 + $segment_short_ratio);
+        left: $segment_unit * $segment_short_ratio;
+    }
+    #btm {
+        top: $segment_unit * (2 + 2 * $segment_short_ratio);
+        left: $segment_unit * $segment_short_ratio;
+    }
+
+    #l_top {
+        top: $segment_unit * $segment_short_ratio;
+        left: 0px;
+    }
+    #l_btm {
+        top: $segment_unit * (1 + 2*$segment_short_ratio);
+        left: 0px;
+    }
+
+    #r_top {
+        top: $segment_unit * $segment_short_ratio;
+        left: $segment_unit * (1 + $segment_short_ratio);
+    }
+    #r_btm {
+        top: $segment_unit * (1 + 2*$segment_short_ratio);
+        left: $segment_unit * (1 + $segment_short_ratio);
+    }
+}
+
+
