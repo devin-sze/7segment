@@ -133,7 +133,7 @@ function create_segment() {
         clearInterval(interval1);
 
         let interval2 = setInterval(function() {
-            _0_4();
+            _0_5();
             clearInterval(interval2);
     
         }, 1000)
@@ -807,13 +807,73 @@ function _4_7() {
     lr_move(MID, CLEAR, LEFT, 1, seg_time);
 }
 
+function _4_8() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 4;
+    var seg_time = Math.round(time/num_segments, 3);
+
+    lr_move(TOP, FILL, LEFT, 0, seg_time);
+    tb_move(RBTM, CLEAR, UP, 0, seg_time);
+
+    tb_move(LBTM, FILL, DOWN, 1, seg_time);
+    lr_move(BTM, FILL, RIGHT, 2, seg_time);
+    tb_move(RBTM, FILL, UP, 3, seg_time);
+}
+
+function _4_9() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 2;
+    var seg_time = Math.round(time/num_segments, 3);
+
+    lr_move(TOP, FILL, RIGHT, 0, seg_time);
+    lr_move(BTM, FILL, LEFT, 1, seg_time);
+}
 
 
 
 
+function _5_0() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 2;
+    var seg_time = Math.round(time/num_segments, 3);
 
+    lr_move(MID, CLEAR, RIGHT, 0, seg_time);
+    tb_move(LBTM, FILL, UP, 0, seg_time);
 
+    tb_move(RTOP, FILL, DOWN, 1, seg_time);
+}
 
+function _5_1() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 4;
+    var seg_time = Math.round(time/num_segments, 3);
+
+    lr_move(TOP, CLEAR, LEFT, 0, seg_time);
+    lr_move(BTM, CLEAR, RIGHT, 0, seg_time);
+
+    tb_move(LTOP, CLEAR, DOWN, 1, seg_time);
+    lr_move(MID, CLEAR, RIGHT, 2, seg_time);
+
+    tb_move(RTOP, FILL, UP, 3, seg_time);
+}
+
+function _5_2() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 4;
+    var seg_time = Math.round(time/num_segments, 3);
+
+    lr_move(TOP, CLEAR, LEFT, 0, seg_time);
+    lr_move(BTM, CLEAR, RIGHT, 0, seg_time);
+
+    tb_move(LTOP, CLEAR, DOWN, 1, seg_time);
+    tb_move(RBTM, CLEAR, UP, 1, seg_time);
+
+    tb_move(LBTM, FILL, DOWN, 2, seg_time);
+    tb_move(RTOP, FILL, UP, 2, seg_time);
+
+    lr_move(TOP, FILL, LEFT, 3, seg_time);
+    lr_move(BTM, FILL, RIGHT, 3, seg_time);
+}
 
 
 
