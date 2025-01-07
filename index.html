@@ -30,19 +30,25 @@
         <div onclick="add_num(9)">9</div>
     </div>
     
+    <p>Order: <span id="order">2 9</span></p>
+
     <p>hiii</p>
 
-    <div class="start" onclick="clear()"></div>
+    <div class="start" onclick="start_animate()"></div>
+
+    <div class="clear" onclick="clear_segments()"></div>
 
     <div class="display">
-        <div class="segment h" id="top"></div>
-        <div class="segment v" id="l_top"></div>
-        <div class="segment v" id="l_btm"></div>
-        <div class="segment h" id="btm"></div>
-        <div class="segment v" id="r_top"></div>
-        <div class="segment v" id="r_btm"></div>
-        <div class="segment h" id="mid"></div>
+        <div class="segment h" id="top">TOP</div>
+        <div class="segment v" id="l_top">LTOP</div>
+        <div class="segment v" id="l_btm">LBTM</div>
+        <div class="segment h" id="btm">BTM</div>
+        <div class="segment v" id="r_top">RTOP</div>
+        <div class="segment v" id="r_btm">RBTM</div>
+        <div class="segment h" id="mid">MID</div>
     </div>
+
+    
 
 
 

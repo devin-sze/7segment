@@ -105,11 +105,15 @@ header {
 
 
 .start {
+    background-color: green;
+    height: 50px;
+    width: 50px;
+}
+.clear {
     background-color: red;
     height: 50px;
     width: 50px;
 }
-
 
 .display {
     background-color: blue;
@@ -128,7 +132,7 @@ header {
             position: absolute;
             left: "";
             top: "";
-            background-color: orange;
+            background-color: #ffa60096;
 
             transition: width 0.2s, height 0.2s;
             transition-timing-function: linear;
