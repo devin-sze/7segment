@@ -133,7 +133,7 @@ function create_segment() {
         clearInterval(interval1);
 
         let interval2 = setInterval(function() {
-            _0_5();
+            _0_6();
             clearInterval(interval2);
     
         }, 1000)
@@ -946,12 +946,114 @@ function _5_9() {
 
 
 
+function _6_0() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 1;
+    var seg_time = Math.round(time/num_segments, 3);
 
+    lr_move(MID, CLEAR, LEFT, 0, seg_time);
+    tb_move(RTOP, FILL, DOWN, 0, seg_time);
+}
 
+function _6_1() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 6;
+    var seg_time = Math.round(time/num_segments, 3);
 
+    lr_move(MID, CLEAR, RIGHT, 0, seg_time);
+    tb_move(RBTM, CLEAR, DOWN, 1, seg_time);
+    lr_move(BTM, CLEAR, LEFT, 2, seg_time);
+    tb_move(LBTM, CLEAR, UP, 3, seg_time);
 
+    tb_move(RTOP, FILL, DOWN, 4, seg_time);
+    tb_move(LTOP, CLEAR, UP, 4, seg_time);
 
+    lr_move(TOP, CLEAR, RIGHT, 5, seg_time);
+    tb_move(RBTM, FILL, DOWN, 5, seg_time);
+}
 
+function _6_2() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 5;
+    var seg_time = Math.round(time/num_segments, 3);
 
+    lr_move(TOP, CLEAR, LEFT, 0, seg_time);
+    tb_move(LBTM, CLEAR, DOWN, 0, seg_time);
+    
 
+    tb_move(LTOP, CLEAR, DOWN, 1, seg_time);
+    lr_move(BTM, CLEAR, RIGHT, 1, seg_time);
+
+    tb_move(RBTM, CLEAR, UP, 2, seg_time);
+    tb_move(LBTM, FILL, DOWN, 2, seg_time);
+
+    tb_move(RTOP, FILL, UP, 3, seg_time);
+    lr_move(BTM, FILL, RIGHT, 3, seg_time);
+
+    lr_move(TOP, FILL, LEFT, 4, seg_time);
+}
+
+function _6_3() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 2;
+    var seg_time = Math.round(time/num_segments, 3);
+
+    tb_move(RTOP, FILL, UP, 0, seg_time);
+    tb_move(LTOP, CLEAR, DOWN, 0, seg_time);
+
+    tb_move(LBTM, CLEAR, DOWN, 1, seg_time);
+}
+
+function _6_4() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 3;
+    var seg_time = Math.round(time/num_segments, 3);
+
+    lr_move(TOP, CLEAR, LEFT, 0, seg_time);
+    tb_move(RTOP, FILL, UP, 0, seg_time);
+
+    tb_move(LBTM, CLEAR, DOWN, 1, seg_time);
+    lr_move(BTM, CLEAR, RIGHT, 2, seg_time);
+}
+
+function _6_5() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 1;
+    var seg_time = Math.round(time/num_segments, 3);
+
+    tb_move(LBTM, CLEAR, DOWN, 0, seg_time);
+}
+
+function _6_7() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 5;
+    var seg_time = Math.round(time/num_segments, 3);
+
+    lr_move(MID, CLEAR, RIGHT, 0, seg_time);
+    tb_move(RBTM, CLEAR, DOWN, 1, seg_time);
+    lr_move(BTM, CLEAR, LEFT, 2, seg_time);
+
+    tb_move(LBTM, CLEAR, UP, 3, seg_time);
+    tb_move(RTOP, FILL, DOWN, 3, seg_time);
+
+    tb_move(LTOP, CLEAR, UP, 4, seg_time);
+    tb_move(RBTM, FILL, DOWN, 4, seg_time);
+}
+
+function _6_8() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 1;
+    var seg_time = Math.round(time/num_segments, 3);
+
+    tb_move(RTOP, FILL, DOWN, 0, seg_time);
+}
+
+function _6_9() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 1;
+    var seg_time = Math.round(time/num_segments, 3);
+
+    tb_move(RTOP, FILL, DOWN, 0, seg_time);
+    tb_move(LBTM, CLEAR, DOWN, 0, seg_time);
+}
 
