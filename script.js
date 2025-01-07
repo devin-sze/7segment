@@ -70,35 +70,6 @@ function add_num(i) {
 
     document.getElementById("order").innerHTML += " " + i.toString();
 
-    // init_0();
-
-    // // let interval = setInterval(function() {
-
-    // console.log(i);
-    // if (i == 0) {
-    //     _1_0();
-    // }
-    // if (i == 1) {
-    //     return;
-    // } else if (i == 2) {
-    //     _1_2();
-    // } else if (i == 3) {
-    //     _1_3();
-    // } else if (i == 4) {
-    //     _1_4();
-    // } else if (i == 5) {
-    //     _1_5();
-    // } else if (i == 6) {
-    //     _1_6();
-    // } else if (i == 7) {
-    //     _1_7();
-    // } else if (i == 8) {
-    //     _1_8();
-    // } else if (i == 9) {
-    //     _1_9();
-    // }
-    // //     clearInterval(interval);
-    // }, 1000)
 }
 
 function start_animate() {
@@ -162,7 +133,7 @@ function create_segment() {
         clearInterval(interval1);
 
         let interval2 = setInterval(function() {
-            _0_2();
+            _0_3();
             clearInterval(interval2);
     
         }, 1000)
@@ -650,3 +621,42 @@ function _2_9() {
 
     tb_move(LTOP, FILL, UP, 2, seg_time);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
