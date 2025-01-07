@@ -133,7 +133,7 @@ function create_segment() {
         clearInterval(interval1);
 
         let interval2 = setInterval(function() {
-            _0_3();
+            _0_4();
             clearInterval(interval2);
     
         }, 1000)
@@ -622,6 +622,10 @@ function _2_9() {
     tb_move(LTOP, FILL, UP, 2, seg_time);
 }
 
+
+
+
+
 function _3_0() {
     var time = output.innerHTML * 1000;
     var num_segments = 2;
@@ -717,8 +721,26 @@ function _3_9() {
 
 
 
+function _4_0() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 3;
+    var seg_time = Math.round(time/num_segments, 3);
 
+    lr_move(MID, CLEAR, LEFT, 0, seg_time);
+    lr_move(TOP, FILL, RIGHT, 0, seg_time);
 
+    lr_move(BTM, FILL, LEFT, 1, seg_time);
+    tb_move(LBTM, FILL, UP, 2, seg_time);
+}
+
+function _4_1() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 2;
+    var seg_time = Math.round(time/num_segments, 3);
+
+    tb_move(LTOP, CLEAR, DOWN, 0, seg_time);
+    lr_move(MID, CLEAR, RIGHT, 1, seg_time);
+}
 
 
 

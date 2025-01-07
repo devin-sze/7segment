@@ -116,7 +116,7 @@ header {
 }
 
 .display {
-    background-color: blue;
+    background-color: #9b9be2;
     height: $segment_unit * (2 + 3 * $segment_short_ratio);
     width: $segment_unit * (1 + 2 * $segment_short_ratio);
     margin: 50px;
@@ -132,7 +132,7 @@ header {
             position: absolute;
             left: "";
             top: "";
-            background-color: #ffa60096;
+            background-color: #ffa600c4;
 
             transition: width 0.2s, height 0.2s;
             transition-timing-function: linear;
