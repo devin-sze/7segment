@@ -1,104 +1,160 @@
 body {
   margin: 0px;
+  background-color: #040931;
+  color: white;
 }
 
 header {
-  background-color: orange;
+  background-color: #01000b;
   width: 100%;
   height: 40px;
   line-height: 40px;
   text-align: center;
+  font-weight: 800;
+  font-variant: small-caps;
+  font-size: 25px;
+  color: white;
+  font-family: "Courier New", monospace;
+}
+
+#buffer {
+  height: 35px;
+  width: 35px;
 }
 
 .slidecontainer {
-  width: 100%; /* Width of the outside container */
+  width: 80%; /* Width of the outside container */
+  margin: 10px 10% 0% 10%;
+  /* The slider itself */
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 }
-
-/* The slider itself */
-.slider {
-  -webkit-appearance: none; /* Override default CSS styles */
-  -moz-appearance: none;
-       appearance: none;
-  width: 100%; /* Full-width */
-  height: 25px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */ /* 0.2 seconds transition on hover */
+.slidecontainer .slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 50px;
+  background: #d5daff;
+  outline: none;
+  opacity: 0.7;
   transition: opacity 0.2s;
 }
-
-/* Mouse-over effects */
-.slider:hover {
+.slidecontainer .slider:hover {
   opacity: 1; /* Fully shown on mouse-over */
 }
-
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
+.slidecontainer .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
   appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #04AA6D; /* Green background */
-  cursor: pointer; /* Cursor on hover */
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #70b970;
+  cursor: pointer;
 }
-
-.slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #04AA6D; /* Green background */
-  cursor: pointer; /* Cursor on hover */
-}
-
-.grid-element {
-  height: 50px;
-  padding: 10px 20px;
-  box-sizing: border-box;
-  background: #BBDEFB;
-  color: #333;
-}
-
-.relative {
-  position: relative;
-  left: -50px;
-  top: 10px;
-}
-
-.numeric_count {
-  background-color: yellow;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-}
-.numeric_count div {
-  background-color: green;
-  height: 25px;
+.slidecontainer .slider::-moz-range-thumb {
   width: 25px;
-  line-height: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #70b970;
+  cursor: pointer;
+}
+
+#number_input {
+  background-color: #d5daff;
+  width: 80%;
+  height: 20px;
+  margin: 0% 10% 0% 10%;
+  border: none;
   text-align: center;
-  line-height: 25px;
-  border-radius: 100%;
+  font-family: "Courier New", monospace;
+  font-weight: 600;
+  color: black;
+  border-radius: 40px;
 }
 
-.start {
-  background-color: green;
-  height: 50px;
-  width: 50px;
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-.clear {
-  background-color: red;
-  height: 50px;
-  width: 50px;
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#control_container {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 10px auto 50px auto;
+  height: 27px;
+}
+#control_container .control_wrap {
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10px;
+  line-height: 15px;
+  font-weight: 100;
+  width: -moz-fit-content;
+  width: fit-content;
+  float: left;
+  opacity: 0.9;
+}
+#control_container .control_wrap:hover {
+  opacity: 1;
+}
+#control_container .control_wrap:active .start {
+  background-color: #58b058;
+}
+#control_container .control_wrap:active .clear {
+  background-color: #c47070;
+}
+#control_container .control_wrap #animate_label {
+  padding-right: 15px;
+  padding-left: 5px;
+}
+#control_container .control_wrap .control {
+  height: 25px;
+  width: 75px;
+  border: none;
+  border-radius: 25px;
+  font-family: Verdana, Geneva, sans-serif;
+}
+#control_container .control_wrap .start {
+  background-color: #70b970;
+}
+#control_container .control_wrap .clear {
+  background-color: #d18383;
+}
+#control_container #start_wrap {
+  border: solid 1px #70b970;
+  margin-right: 10px;
+}
+#control_container #start_wrap:active {
+  border-color: #58b058;
+}
+#control_container #start_wrap #speed {
+  color: rgba(255, 255, 255, 0.5882352941);
+}
+#control_container #clear_wrap {
+  border: solid 1px #d18383;
+  margin-left: 10px;
+}
+#control_container #clear_wrap:active {
+  border-color: #c47070;
 }
 
 .display {
-  background-color: #9b9be2;
+  background-color: #040931;
   height: 390px;
   width: 210px;
-  margin: 50px;
+  margin: 0px calc((100% - 210px) / 2) 0px calc((100% - 210px) / 2);
   position: absolute;
 }
 .display .segment {
-  background-color: rgba(0, 255, 255, 0.368627451);
+  background-color: #01000b;
   position: absolute;
   border-radius: 150px;
   overflow: hidden;
@@ -107,7 +163,7 @@ header {
   position: absolute;
   left: "";
   top: "";
-  background-color: rgba(255, 166, 0, 0.768627451);
+  background-color: #d5daff;
   transition: width 0.2s, height 0.2s;
   transition-timing-function: linear;
 }

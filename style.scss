@@ -1,129 +1,226 @@
 
 $segment_unit: 150px;
 $segment_short_ratio: 0.2;
+$background_color: #040931;
+$background_color_2: #01000b;
+$accent_color: #d5daff;
+$green: #70b970;
+$green_active: #58b058;
+$red: #d18383;
+$red_active: #c47070;
 
 
 body {
     margin: 0px;
+    
+    background-color: $background_color;
+    color: white;
 }
 header {
-    background-color: orange;
+    background-color: $background_color_2;
     width: 100%;
     height: 40px;
     line-height: 40px;
     text-align: center;
+    font-weight: 800;
+    font-variant: small-caps;
+    font-size: 25px;
+    color: white;
+    font-family: 'Courier New', monospace;
 }
 
+#buffer {
+    height: 35px;
+    width: 35px;
+}
 
 
 
 .slidecontainer {
-    width: 100%; /* Width of the outside container */
-  }
-  
-  /* The slider itself */
-  .slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
-    appearance: none;
-    width: 100%; /* Full-width */
-    height: 25px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
-  }
-  
-  /* Mouse-over effects */
-  .slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
-  }
-  
-  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-  .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }
-  
-  .slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }
+    width: 80%; /* Width of the outside container */
+    margin: 10px 10% 0% 10%;
 
 
 
 
+    /* The slider itself */
+    .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 5px;
+        border-radius: 50px;  
+        background: $accent_color;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
 
-
-
-
-
-
-
-
-
-
-
-  .grid-element {
-    height: 50px;
-    padding: 10px 20px;
-    box-sizing: border-box;
+        &:hover {
+            opacity: 1; /* Fully shown on mouse-over */
+        }
+    }
     
-    background: #BBDEFB;
-    color: #333;
-  }
-  
-  .relative {
-    position: relative;
-    left: -50px;
-    top: 10px;
-  }
-
-
-
-.numeric_count {
-    background-color: yellow;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    div {
-        background-color: green;
-        height: 25px;
+    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%; 
+        background: $green;
+        cursor: pointer;
+    }
+    
+    .slider::-moz-range-thumb {
         width: 25px;
-        line-height: 25px;
-        text-align: center;
-        line-height: 25px;
-        border-radius: 100%;
+        height: 25px;
+        border-radius: 50%;
+        background: $green;
+        cursor: pointer;
+    }
+}
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#number_input {
+    background-color: $accent_color;
+    width: 80%;
+    height: 20px;
+    margin: 0% 10% 0% 10%;
+    border: none;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    color: black;
+    border-radius: 40px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#control_container {
+    width: fit-content;
+    // margin: 20px auto 20px auto;
+    // background-color: purple;
+    margin: 10px auto 50px auto;
+
+    height: 27px;
+
+    .control_wrap{
+        border-radius: 100px;
+        box-sizing: border-box;
+        color: #ffffff66;
         
+        font-family: Verdana, Geneva, sans-serif;
+        font-size: 10px;
+        line-height: 15px;
+        font-weight: 100;
+        width: fit-content;
+        float: left;
+        opacity: 0.9;
+
+
+        &:hover {
+            opacity: 1;
+        }
+        &:active {
+            .start {
+                background-color: $green_active;
+            }
+            .clear {
+                background-color: $red_active;
+            }
+        }
+
+
+
+
+        #animate_label {
+            padding-right: 15px;
+            padding-left: 5px;
+        }
+
+        .control {
+            height: 25px;
+            width: 75px;
+            border: none;
+            border-radius: 25px;
+            font-family: Verdana, Geneva, sans-serif;
+        }
+        
+        .start {
+            background-color: $green;
+        }
+        .clear {
+            background-color: $red;
+        }
+    }
+
+    #start_wrap {
+        border: solid 1px $green;
+        margin-right: 10px;
+
+        &:active {
+            border-color: $green_active;
+        }
+
+        #speed {
+            color: #ffffff96;
+        }
+    }
+    #clear_wrap {
+        border: solid 1px $red;
+        margin-left: 10px;
+
+        &:active {
+            border-color: $red_active;
+        }
     }
 }
 
 
-.start {
-    background-color: green;
-    height: 50px;
-    width: 50px;
-}
-.clear {
-    background-color: red;
-    height: 50px;
-    width: 50px;
-}
+
+
+
+
+
+
+
+
 
 .display {
-    background-color: #9b9be2;
+    background-color: $background_color;
     height: $segment_unit * (2 + 3 * $segment_short_ratio);
     width: $segment_unit * (1 + 2 * $segment_short_ratio);
-    margin: 50px;
+    margin: 0px calc((100% - $segment_unit * (1 + 2 * $segment_short_ratio))/2) 0px calc((100% - $segment_unit * (1 + 2 * $segment_short_ratio))/2);
     position: absolute;
 
     .segment {
-        background-color: #00ffff5e;
+        background-color: $background_color_2;
         position: absolute;
         border-radius: $segment_unit;
         overflow: hidden;
@@ -132,7 +229,7 @@ header {
             position: absolute;
             left: "";
             top: "";
-            background-color: #ffa600c4;
+            background-color: $accent_color;
 
             transition: width 0.2s, height 0.2s;
             transition-timing-function: linear;

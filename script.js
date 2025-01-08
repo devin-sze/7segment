@@ -1,15 +1,30 @@
 
 
+
+document.onload = function() {  
+    document.getElementById("number_input").focus();
+}
+
+
+
+
+
+
 // set animation speed
 
 var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
+var output = document.getElementById("speed");
 output.innerHTML = slider.value; // Display the default slider value
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
-    output.innerHTML = this.value;
+    
     var val = this.value.toString();
+    if (val.length == 3) {
+        val = val + "0";
+    }
+    output.innerHTML = val;
+
     for (var i = 0; i < 7; i++) {
         set_animate_time(get_animate_id(segment_parent[i]), val);
     }
@@ -73,13 +88,26 @@ function add_num(i) {
 }
 
 function start_animate() {
-    var order = document.getElementById("order").innerHTML.split(" ");
+    var order = order = document.getElementById("number_input").value.toString().split("").map(Number);
+
+    order.unshift(0);
+
+    console.log(order);
+
+    execute_fn_by_name_delay("disable_input", window, 0);
+    execute_fn_by_name_delay("enable_input", window, order.length * 1000);
 
     for (let i = 0; i < order.length - 1; i++) {
         var start = order[i];
         var end = order[i+1];
 
-        execute_fn_by_name_delay("_" + start + "_" + end, window, i*1000);
+        if (start == end) {
+            execute_fn_by_name_delay("do_nothing", window, i*1000);
+        } else {
+            console.log("_" + start + "_" + end);
+            execute_fn_by_name_delay("_" + start + "_" + end, window, i*1000);
+            
+        }
     }
 }
 
@@ -106,7 +134,20 @@ function execute_fn_by_name(functionName, context) {
 
 
 
+function do_nothing() {
+    console.log("nothing");
+    return;
+}
 
+function disable_input() {
+    document.getElementById("number_input").disabled = true;
+    document.getElementById("myRange").disabled = true;
+}
+
+function enable_input() {
+    document.getElementById("number_input").disabled = false;
+    document.getElementById("myRange").disabled = false;
+}
 
 
 
@@ -118,6 +159,10 @@ function get_animate_id(name) {
 
 
 function create_segment() {
+
+    document.getElementById("number_input").focus();
+
+
     for (let i = 0; i < 7; i++) {
         var parent_id = segment_parent[i];
         console.log(parent_id);
@@ -131,12 +176,6 @@ function create_segment() {
     let interval1 = setInterval(function() {
         init_0();
         clearInterval(interval1);
-
-        let interval2 = setInterval(function() {
-            _0_8();
-            clearInterval(interval2);
-    
-        }, 1000)
 
     }, 1000)
     
@@ -207,7 +246,6 @@ function tb_move(id, fill_or_clear, movement_dir, animate_order, animate_time) {
             if (movement_dir == UP) {
                 div.style.top = "0px";
                 div.style.bottom = "";
-                console.log("here");
             } else if (movement_dir == DOWN) {
                 div.style.bottom = "0px";
                 div.style.top = "";
@@ -244,10 +282,17 @@ function fast_clear() {
 function clear_segments() {
 
     console.log("clear");
+    
+    
+
+    document.getElementById("number_input").value = "";
 
     var time = output.innerHTML * 1000;
     var num_segments = 3;
     var seg_time = Math.round(time/num_segments, 3);
+
+    execute_fn_by_name_delay("disable_input", window, 0);
+    execute_fn_by_name_delay("enable_input", window, 8*seg_time + output.innerHTML * 1000);
     
     lr_move(TOP, CLEAR, RIGHT,   0, seg_time);
     tb_move(LTOP, CLEAR, DOWN,    0, seg_time);
@@ -258,6 +303,10 @@ function clear_segments() {
 
     tb_move(RBTM, CLEAR, DOWN,    2, seg_time);
     lr_move(BTM, CLEAR, RIGHT,    2, seg_time);
+
+    execute_fn_by_name_delay("init_0", window, 5*seg_time);
+
+
 }
 
 
@@ -549,7 +598,7 @@ function _2_4() {
     tb_move(LTOP, FILL, DOWN, 0, seg_time);
     
     lr_move(BTM, CLEAR, LEFT, 0, seg_time);
-    lr_move(RBTM, FILL, DOWN, 0, seg_time);
+    tb_move(RBTM, FILL, DOWN, 0, seg_time);
     
     tb_move(LBTM, CLEAR, UP, 1, seg_time);
     tb_move(RBTM, FILL, DOWN, 1, seg_time);
@@ -858,6 +907,7 @@ function _5_1() {
 }
 
 function _5_2() {
+    console.log("5,2");
     var time = output.innerHTML * 1000;
     var num_segments = 4;
     var seg_time = Math.round(time/num_segments, 3);
@@ -1272,14 +1322,94 @@ function _8_9() {
 
 
 
+function _9_0() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 1;
+    var seg_time = Math.round(time/num_segments, 3);
 
+    lr_move(MID, CLEAR, LEFT, 0, seg_time);
+    tb_move(LBTM, FILL, UP, 0, seg_time);
+}
 
+function _9_1() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 3;
+    var seg_time = Math.round(time/num_segments, 3);
 
+    lr_move(MID, CLEAR, LEFT, 0, seg_time);
+    lr_move(BTM, CLEAR, RIGHT, 0, seg_time);
 
+    tb_move(LTOP, CLEAR, UP, 1, seg_time);
 
+    lr_move(TOP, CLEAR, RIGHT, 2, seg_time);
+    
+}
 
+function _9_2() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 3;
+    var seg_time = Math.round(time/num_segments, 3);
 
+    tb_move(LTOP, CLEAR, DOWN, 0, seg_time);
+    tb_move(LBTM, FILL, UP, 0, seg_time);
 
+    tb_move(RBTM, CLEAR, DOWN, 2, seg_time);    
+}
+
+function _9_3() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 1;
+    var seg_time = Math.round(time/num_segments, 3);
+
+    tb_move(LTOP, CLEAR, UP, 0, seg_time);  
+}
+
+function _9_4() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 2;
+    var seg_time = Math.round(time/num_segments, 3);
+
+    lr_move(TOP, CLEAR, RIGHT, 0, seg_time);
+    lr_move(BTM, CLEAR, RIGHT, 1, seg_time);
+}
+
+function _9_5() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 1;
+    var seg_time = Math.round(time/num_segments, 3);
+
+    tb_move(RTOP, CLEAR, UP, 0, seg_time);  
+}
+
+function _9_6() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 1;
+    var seg_time = Math.round(time/num_segments, 3);
+
+    tb_move(RTOP, CLEAR, UP, 0, seg_time);
+    tb_move(LBTM, FILL, UP, 0, seg_time);
+}
+
+function _9_7() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 4;
+    var seg_time = Math.round(time/num_segments, 3);
+
+    lr_move(MID, CLEAR, LEFT, 0, seg_time);
+    tb_move(LTOP, CLEAR, UP, 1, seg_time);
+    lr_move(TOP, CLEAR, RIGHT, 2, seg_time);
+
+    lr_move(TOP, FILL, LEFT, 3, seg_time);
+    lr_move(BTM, CLEAR, RIGHT, 3, seg_time);
+}
+
+function _9_8() {
+    var time = output.innerHTML * 1000;
+    var num_segments = 4;
+    var seg_time = Math.round(time/num_segments, 3);
+
+    tb_move(LBTM, FILL, DOWN, 0, seg_time);
+}
 
 
 

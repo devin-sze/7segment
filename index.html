@@ -10,35 +10,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 </head>
 <body onload="create_segment()">
-    <header>Seven Segment Display</header>
+    <header>Animated Seven Segment Display</header>
+
+    <div id="buffer"></div>
+
+    
+
+    <input type="number" min="0" oninput="validity.valid||(value='');" id="number_input" placeholder="Enter any sequence of numbers">
 
     <div class="slidecontainer">
-        <input type="range" min="0.1" max="5" value="0.4" step="0.05" class="slider" id="myRange">
-        <p>Value: <span id="demo"></span></p>
+        <input type="range" min="0.10" max="0.90" value="0.41" step="0.01" class="slider" id="myRange">
     </div>
 
-    <div class="numeric_count">
-        <div onclick="add_num(0)">0</div>
-        <div onclick="add_num(1)">1</div>
-        <div onclick="add_num(2)">2</div>
-        <div onclick="add_num(3)">3</div>
-        <div onclick="add_num(4)">4</div>
-        <div onclick="add_num(5)">5</div>
-        <div onclick="add_num(6)">6</div>
-        <div onclick="add_num(7)">7</div>
-        <div onclick="add_num(8)">8</div>
-        <div onclick="add_num(9)">9</div>
+
+    <div id="control_container">
+        <div class="control_wrap" id="start_wrap">
+            <input class="control start" type="button" value="Start" onclick="start_animate()"/>
+            <span id="animate_label">animation speed: <span id="speed"></span></span>
+        </div>
+        <div class="control_wrap" id="clear_wrap">
+            <input class="control clear" type="button" value="Clear" onclick="clear_segments()"/>
+        </div>
     </div>
-    
-    <p>Order: <span id="order">8 9</span></p>
 
-    <p>hiii</p>
-
-    <div class="start" onclick="start_animate()"></div>
-
-    <div class="clear" onclick="clear_segments()"></div>
-
-    <!-- <div class="display">
+    <div class="display">
         <div class="segment h" id="top"></div>
         <div class="segment v" id="l_top"></div>
         <div class="segment v" id="l_btm"></div>
@@ -46,21 +41,7 @@
         <div class="segment v" id="r_top"></div>
         <div class="segment v" id="r_btm"></div>
         <div class="segment h" id="mid"></div>
-    </div> -->
-
-    <div class="display">
-        <div class="segment h" id="top">TOP</div>
-        <div class="segment v" id="l_top">LTOP</div>
-        <div class="segment v" id="l_btm">LBTM</div>
-        <div class="segment h" id="btm">BTM</div>
-        <div class="segment v" id="r_top">RTOP</div>
-        <div class="segment v" id="r_btm">RBTM</div>
-        <div class="segment h" id="mid">MID</div>
     </div>
-
-    
-
-
 
     <div class="segment"></div>
     
